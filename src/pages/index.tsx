@@ -4,101 +4,124 @@ import { Box, Button, Flex, Hide, Link, Text } from '@chakra-ui/react'
 import { Header } from '@/components/Header'
 import Image from 'next/image'
 import { GithubLogo } from 'phosphor-react'
+import { About } from '@/components/About'
+import { RevealWrapper } from 'next-reveal'
 
 export default function Home() {
   return (
     <Flex
-      w="100vw"
-      h="100vh"
+      minH="100vh"
       align="center"
       direction="column"
       justify="flex-start"
-      paddingX={10}
+      paddingX={{
+        base: 4,
+        md: 10
+      }}
+      paddingBottom={100}
     >
       <Header />
+
       <Flex
         gap={10}
+        maxW={1440}
         width="100%"
         justifyContent={{
           base: 'center',
           lg: 'space-between'
         }}
-        maxW={1440}
         align="center"
+        overflow="hidden"
       >
-        <Flex
-          maxW={{
-            base: '90%',
-            lg: 650
-          }}
-          textAlign={{
-            base: 'center',
-            lg: 'left'
-          }}
-          flexDir="column"
-          align={{
-            base: 'center',
-            lg: 'flex-start'
-          }}
-        >
-          <Text fontSize="4xl">
-            Ajudando empresas a construírem
+        <RevealWrapper duration={1000} origin="left">
+          <Flex
+            maxW={{
+              lg: 650
+            }}
+            textAlign={{
+              base: 'center',
+              lg: 'left'
+            }}
+            flexDir="column"
+            align={{
+              base: 'center',
+              lg: 'flex-start'
+            }}
+            gap={6}
+          >
             <Text
-              as="span"
-              display="inline"
-              marginInline={3}
-              color="purple.300"
+              fontSize={{
+                base: '2xl',
+                md: '4xl'
+              }}
             >
-              produtos digitais
+              Ajudando empresas a construírem
+              <Text
+                as="span"
+                display="inline"
+                marginInline={3}
+                color="purple.300"
+              >
+                produtos digitais
+              </Text>
+              de forma moderna e de alta qualidade.
             </Text>
-            de forma moderna e de alta qualidade.
-          </Text>
-          <Text fontSize="xl" color="gray.200">
-            Uma combinação única de design, desenvolvimento frontend e
-            habilidades profissionais que impulsionarão seu produto a se
-            destacar no mercado.
-          </Text>
-          <Link
-            target="_blank"
-            textDecoration="dashed"
-            href="https://github.com/MauricioAires"
-            isExternal
-            mt={20}
-          >
-            <Button
-              w={300}
-              h={14}
-              bg="purple.700"
-              _hover={{
-                bg: 'purple.800'
+            <Text
+              fontSize={{
+                base: 'md',
+                md: 'xl'
               }}
-              gap={2}
+              color="gray.200"
             >
-              <GithubLogo weight="bold" size={20} /> Github
-            </Button>
-          </Link>
-        </Flex>
-
+              Uma combinação única de design, desenvolvimento frontend e
+              habilidades profissionais que impulsionarão seu produto a se
+              destacar no mercado.
+            </Text>
+            <Link
+              target="_blank"
+              textDecoration="dashed"
+              href="https://github.com/MauricioAires"
+              isExternal
+              mt={20}
+            >
+              <Button
+                w={300}
+                h={14}
+                bg="purple.700"
+                _hover={{
+                  bg: 'purple.800'
+                }}
+                gap={2}
+              >
+                <GithubLogo weight="bold" size={20} /> Github
+              </Button>
+            </Link>
+          </Flex>
+        </RevealWrapper>
         <Hide below="lg">
-          <Box
-            display="flex"
-            justifyContent="center"
-            alignItems="center"
-            w={600}
-          >
-            <Image
-              priority
-              src="/assets/code.png"
-              style={{
-                objectFit: 'cover'
-              }}
-              alt=""
-              width={500}
-              height={500}
-            />
-          </Box>
+          <RevealWrapper duration={1000} origin="right">
+            <Box
+              display="flex"
+              justifyContent="center"
+              alignItems="center"
+              w={600}
+            >
+              <Image
+                priority
+                src="/assets/code.png"
+                style={{
+                  objectFit: 'cover'
+                }}
+                alt=""
+                width={500}
+                height={500}
+              />
+            </Box>
+          </RevealWrapper>
         </Hide>
       </Flex>
+
+      <About />
     </Flex>
   )
 }
