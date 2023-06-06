@@ -1,8 +1,9 @@
 import React from 'react'
-import { Box, Flex, Text } from '@chakra-ui/react'
+import { Box, Button, Flex, Hide, Link, Text } from '@chakra-ui/react'
 
 import { Header } from '@/components/Header'
 import Image from 'next/image'
+import { GithubLogo } from 'phosphor-react'
 
 export default function Home() {
   return (
@@ -12,16 +13,34 @@ export default function Home() {
       align="center"
       direction="column"
       justify="flex-start"
+      paddingX={10}
     >
       <Header />
       <Flex
         gap={10}
         width="100%"
-        justifyContent="space-between"
+        justifyContent={{
+          base: 'center',
+          lg: 'space-between'
+        }}
         maxW={1440}
         align="center"
       >
-        <Flex maxW={650} flexDir="column">
+        <Flex
+          maxW={{
+            base: '90%',
+            lg: 650
+          }}
+          textAlign={{
+            base: 'center',
+            lg: 'left'
+          }}
+          flexDir="column"
+          align={{
+            base: 'center',
+            lg: 'flex-start'
+          }}
+        >
           <Text fontSize="4xl">
             Ajudando empresas a construírem
             <Text
@@ -39,9 +58,46 @@ export default function Home() {
             habilidades profissionais que impulsionarão seu produto a se
             destacar no mercado.
           </Text>
+          <Link
+            target="_blank"
+            textDecoration="dashed"
+            href="https://github.com/MauricioAires"
+            isExternal
+            mt={20}
+          >
+            <Button
+              w={300}
+              h={14}
+              bg="purple.700"
+              _hover={{
+                bg: 'purple.800'
+              }}
+              gap={2}
+            >
+              <GithubLogo weight="bold" size={20} /> Github
+            </Button>
+          </Link>
         </Flex>
 
-        <Box />
+        <Hide below="lg">
+          <Box
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+            w={600}
+          >
+            <Image
+              priority
+              src="/assets/code.png"
+              style={{
+                objectFit: 'cover'
+              }}
+              alt=""
+              width={500}
+              height={500}
+            />
+          </Box>
+        </Hide>
       </Flex>
     </Flex>
   )
