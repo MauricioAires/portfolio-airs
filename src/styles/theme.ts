@@ -16,13 +16,13 @@ export const theme = extendTheme({
     }
   },
   fonts: {
-    heading: 'Roboto',
-    body: 'Roboto'
+    heading: 'Archivo',
+    body: 'Archivo'
   },
   styles: {
     global: {
       body: {
-        bg: 'gray.900',
+        bg: 'Black',
         color: 'gray.50'
       }
     }
