@@ -1,15 +1,20 @@
 import {
   Box,
-  Flex,
-  Link,
-  ListItem,
-  Spacer,
   Text,
-  UnorderedList
+  Button,
+  UnorderedList,
+  useBreakpointValue
 } from '@chakra-ui/react'
 import Image from 'next/image'
 
+import { MenuItem } from './MenuItem'
+import { List } from 'phosphor-react'
+
 export function Header() {
+  const isWebHeader = useBreakpointValue({
+    base: false,
+    lg: true
+  })
   return (
     <Box
       maxW={1440}
@@ -19,7 +24,6 @@ export function Header() {
       justifyContent="center"
       alignItems="center"
       as="header"
-      margin={4}
     >
       <Box as="nav" w="100%" display="flex" justifyContent="space-between">
         <Box
@@ -42,62 +46,31 @@ export function Header() {
             height={30}
           />
         </Box>
-        <UnorderedList listStyleType="none" display="flex" gap={12}>
-          <ListItem
-            fontSize={'lg'}
-            color="whiteAlpha.700"
+
+        {isWebHeader && (
+          <UnorderedList listStyleType="none" display="flex" gap={12}>
+            <MenuItem title="Inicio" />
+            <MenuItem title="Quem sou" />
+            <MenuItem title="Experiências" />
+            <MenuItem title="Projetos" />
+            <MenuItem title="Serviços" />
+            <MenuItem title="Conhecimentos" />
+          </UnorderedList>
+        )}
+
+        {!isWebHeader && (
+          <Button
+            fontSize={{
+              base: '2xl'
+            }}
+            bg="transparent"
             _hover={{
-              color: 'white'
+              bg: 'gray.800'
             }}
           >
-            <Link>Inicio</Link>
-          </ListItem>
-          <ListItem
-            fontSize={'lg'}
-            color="whiteAlpha.700"
-            _hover={{
-              color: 'white'
-            }}
-          >
-            <Link>Quem sou</Link>
-          </ListItem>
-          <ListItem
-            fontSize={'lg'}
-            color="whiteAlpha.700"
-            _hover={{
-              color: 'white'
-            }}
-          >
-            <Link>Experiências</Link>
-          </ListItem>
-          <ListItem
-            fontSize={'lg'}
-            color="whiteAlpha.700"
-            _hover={{
-              color: 'white'
-            }}
-          >
-            <Link>Projetos</Link>
-          </ListItem>
-          <ListItem
-            fontSize={'lg'}
-            color="whiteAlpha.700"
-            _hover={{
-              color: 'white'
-            }}
-          >
-            <Link>Serviços</Link>
-          </ListItem>
-          <ListItem
-            fontSize={'lg'}
-            color="whiteAlpha.700"
-            _hover={{
-              color: 'white'
-            }}
-          >
-            <Link>Conhecimentos</Link>
-          </ListItem>
-        </UnorderedList>
+            <List />
+          </Button>
+        )}
       </Box>
     </Box>
   )
