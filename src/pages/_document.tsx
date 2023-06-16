@@ -1,5 +1,5 @@
 import Document, { Html, Main, NextScript, Head } from 'next/document'
-
+import { Analytics } from '@/components/Analytics'
 export default class MyDocument extends Document {
   render(): JSX.Element {
     return (
@@ -25,6 +25,7 @@ export default class MyDocument extends Document {
         <body>
           <Main />
           <NextScript />
+          <Analytics />
         </body>
       </Html>
     )
