@@ -24,6 +24,10 @@ export function Header() {
       justifyContent="center"
       alignItems="center"
       as="header"
+      position="sticky"
+      bg="Black"
+      zIndex="sticky"
+      top={0}
     >
       <Box as="nav" w="100%" display="flex" justifyContent="space-between">
         <Box
