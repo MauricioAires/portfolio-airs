@@ -49,12 +49,11 @@ export function Header() {
 
         {isWebHeader && (
           <UnorderedList listStyleType="none" display="flex" gap={12}>
-            <MenuItem title="Inicio" />
-            <MenuItem title="Quem sou" />
-            <MenuItem title="Experiências" />
-            <MenuItem title="Projetos" />
-            <MenuItem title="Serviços" />
-            <MenuItem title="Conhecimentos" />
+            <MenuItem title="Inicio" to="s-home" />
+            <MenuItem title="Quem sou" to="s-about" />
+            <MenuItem title="Experiências" to="s-experience" />
+            <MenuItem title="Projetos" to="s-projects" />
+            <MenuItem title="Conhecimentos" to="s-skills" />
           </UnorderedList>
         )}
 
