@@ -7,6 +7,13 @@ interface MenuItemProps {
 }
 
 export function MenuItem({ title, to }: MenuItemProps) {
+  const handleClick = () => {
+    gtag('event', 'toggle_menu', {
+      event_label: 'Toggle Menu',
+      event_category: to
+    })
+  }
+
   return (
     <Link
       activeClass="active"
@@ -14,6 +21,7 @@ export function MenuItem({ title, to }: MenuItemProps) {
       offset={-100}
       smooth={true}
       duration={1000}
+      onClick={() => handleClick()}
     >
       <ListItem
         fontSize={'lg'}
