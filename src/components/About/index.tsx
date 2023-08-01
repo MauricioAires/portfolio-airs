@@ -11,6 +11,7 @@ export function About() {
       width="100%"
       align="center"
       marginTop={20}
+      marginBottom={14}
     >
       <RevealWrapper distance="100px" className="load-hidden">
         <Flex
