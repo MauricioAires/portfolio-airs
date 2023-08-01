@@ -17,7 +17,6 @@ export function WorkExperiences() {
         base: 'column',
         lg: 'row'
       }}
-      paddingY={24}
     >
       <RevealWrapper distance="100px" className="load-hidden">
         <Flex justifyContent="flex-end" gap={1}>
