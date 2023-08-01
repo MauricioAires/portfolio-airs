@@ -28,6 +28,7 @@ export default function Home() {
           }
         ]}
       />
+      <Header />
 
       <Flex
         minH="100vh"
@@ -40,8 +41,6 @@ export default function Home() {
         }}
         paddingBottom={100}
       >
-        <Header />
-
         <Flex
           id="s-home"
           as="section"

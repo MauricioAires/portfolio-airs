@@ -4,14 +4,17 @@ import { Link } from 'react-scroll'
 interface MenuItemProps {
   title: string
   to: string
+  handleClick?: () => void
 }
 
-export function MenuItem({ title, to }: MenuItemProps) {
-  const handleClick = () => {
+export function MenuItem({ title, to, handleClick }: MenuItemProps) {
+  const handleClickMenuItem = () => {
     gtag('event', 'toggle_menu', {
       event_label: 'Toggle Menu',
       event_category: to
     })
+
+    handleClick && handleClick()
   }
 
   return (
@@ -21,7 +24,7 @@ export function MenuItem({ title, to }: MenuItemProps) {
       offset={-100}
       smooth={true}
       duration={1000}
-      onClick={() => handleClick()}
+      onClick={() => handleClickMenuItem()}
     >
       <ListItem
         fontSize={'lg'}
