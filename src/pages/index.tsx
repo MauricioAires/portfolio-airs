@@ -10,6 +10,11 @@ import { WorkExperiences } from '@/components/WorkExperiences'
 import { NextSeo } from 'next-seo'
 
 export default function Home() {
+  const handleClickViewGithubProfile = () => {
+    gtag('event', 'toggle_github_profile', {
+      event_label: 'View Github Profile'
+    })
+  }
   return (
     <>
       <NextSeo
@@ -100,6 +105,7 @@ export default function Home() {
                 href="https://github.com/MauricioAires"
                 isExternal
                 mt={20}
+                onClick={() => handleClickViewGithubProfile()}
               >
                 <Button
                   w={300}
