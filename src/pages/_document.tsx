@@ -5,6 +5,10 @@ export default class MyDocument extends Document {
     return (
       <Html lang="pt-BR" className="sr">
         <Head>
+          <meta
+            name="google-site-verification"
+            content="JDml95I3tD6fsMp6ZXEVDLmGPMbNkFhjrkyXlUQWYyc"
+          />
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" />
           <link
